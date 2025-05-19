@@ -154,7 +154,7 @@ export default function QueryResults({
                 <li key={Math.random()} className="contents">
                   <span className="line-clamp-1">{r.text}</span>
                   {Object.entries<{ is_toxic: boolean }>(r)
-                    .filter(([_, value]) => value.is_toxic)
+                    .filter((entries) => entries[1].is_toxic)
                     .map(([key]) => (
                       <code title="Toxic Categories" key={Math.random()}>{key}</code>
                     ))}
