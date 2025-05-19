@@ -68,7 +68,7 @@ export default function QueryResults({
 
   if (!results || results.sentences.length === 0) return <Loading />;
 
-  console.log(results);
+  // console.log(results);
 
   const spam = useSpam
     ? {
@@ -96,6 +96,7 @@ export default function QueryResults({
 
   return (
     <div className="flex flex-col gap-2 text-sm overflow-auto">
+      {(spam || toxicity) &&
       <p>
         {"We have found "}
         {spam && (
@@ -110,7 +111,7 @@ export default function QueryResults({
           </>
         )}
         .
-      </p>
+      </p>}
 
       {sentiment && (
         <p>
