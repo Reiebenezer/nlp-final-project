@@ -127,8 +127,8 @@ export default function QueryResults({
           <h3 className="font-bold mt-4">Spam Entries (Total {spam.count})</h3>
           <ul className="grid grid-cols-[1fr_auto] gap-1">
             {spam.results
-              .filter((r: any) => r.is_spam)
-              .map((r: any) => (
+              .filter((r) => r.is_spam)
+              .map((r) => (
                 <li key={Math.random()} className="contents">
                   <span className="line-clamp-1">{r.text}</span>
 
@@ -149,8 +149,8 @@ export default function QueryResults({
           </h3>
           <ul className="grid grid-cols-[1fr_auto] gap-1">
             {toxicity.results
-              .filter((r: any) => r.is_toxic)
-              .map((r: any) => (
+              .filter((r) => r.is_toxic)
+              .map((r) => (
                 <li key={Math.random()} className="contents">
                   <span className="line-clamp-1">{r.text}</span>
                   {Object.entries<{ is_toxic: boolean }>(r)
