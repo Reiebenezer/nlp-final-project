@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  
+  --bg-faded: #c6c6c6;
+  --accent: #c0c0c0;
+  --primary: #097bc2;
+
+  scrollbar-color: var(--accent) transparent;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-faded: var(--bg-faded);
+
+  --color-accent: var(--accent);
+  --color-primary: var(--primary);
+
+  --font-title: var(--font-fascinate);
+  --font-sans: var(--font-inter);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+
+    --bg-faded: #0f0f10;
+    --accent: #313131;
+  }
+}
+
+@layer base {
+  small {
+    @apply opacity-60 text-xs;
+  }
+
+  button {
+    @apply px-4 py-2 flex items-center gap-2 text-sm rounded-md border-2 border-accent cursor-pointer; 
+  }
+
+  code {
+    @apply rounded-sm bg-accent px-1 py-0.5 text-sm;
+  }
+}
