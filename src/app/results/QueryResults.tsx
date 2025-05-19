@@ -25,13 +25,34 @@ import { useEffect, useState } from "react";
  * We also found that the text leans more on the {r.sentiment} side with a confidence value of {r.sentimentConfidence}.
  */
 
+interface ResultSchema {
+  sentences: string[];
+  sentiment: {
+    confidence: number;
+    remark: 'positive' | 'neutral' | 'negative'
+  };
+  spam: {
+    count: number;
+    results: {
+      is_spam: boolean;
+      prediction: string;
+      spam_probability: number;
+      text: string;
+    }[],
+  },
+  toxicity: {
+    count: number;
+    results: (Record<string, { is_toxic: boolean; probability: number; }> & { is_toxic: boolean; text: string })[]
+  }
+}
+
 export default function QueryResults({
   text = "",
   useSpam = false,
   useToxicity = false,
   useSentiment = false,
 }) {
-  const [results, setResults] = useState<Record<string, any>>();
+  const [results, setResults] = useState<ResultSchema>();
 
   useEffect(() => {
     fetch(config.SERVER, {
@@ -66,7 +87,7 @@ export default function QueryResults({
   const sentiment = useSentiment
     ? {
         remark: results.sentiment?.remark,
-        confidence: (results.sentiment?.mark === "negative"
+        confidence: (results.sentiment?.remark === "negative"
           ? 1 - (results.sentiment?.confidence ?? 0)
           : results.sentiment?.confidence ?? 0
         ).toFixed(2),

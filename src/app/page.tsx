@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, KeyboardEventHandler, useState } from "react";
-import { CheckIcon, PaperPlaneRightIcon } from "@phosphor-icons/react";
+import { PaperPlaneRightIcon } from "@phosphor-icons/react";
 import TextareaAutoSize from "react-textarea-autosize";
 import { useRouter } from "next/navigation";
 import CheckButton from "@/lib/CheckButton";
@@ -20,9 +20,9 @@ export default function Home() {
     localStorage.clear();
     localStorage.setItem('text', text);
 
-    spam && localStorage.setItem('use-spam', 'true');
-    toxicity && localStorage.setItem('use-toxicity', 'true');
-    sentiment && localStorage.setItem('use-sentiment', 'true');
+    if (spam) localStorage.setItem('use-spam', 'true');
+    if (toxicity) localStorage.setItem('use-toxicity', 'true');
+    if (sentiment) localStorage.setItem('use-sentiment', 'true');
 
     router.push('/results');
   }
@@ -45,7 +45,7 @@ export default function Home() {
         </h1>
       </a>
       <p>
-        Text analysis made simple. Try adding a 'suspicious' message below!
+        Text analysis made simple. Try adding a &apos;suspicious&apos; message below!
       </p>
 
       <form className="w-[min(720px,80vw)] my-4 flex justify-between items-end p-2 border-2 border-accent rounded-lg" onSubmit={handleSubmit}>
