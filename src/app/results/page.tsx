@@ -1,9 +1,8 @@
 'use client'
 import CheckButton from "@/lib/CheckButton";
-import { ArrowLeftIcon, CheckIcon } from "@phosphor-icons/react/dist/ssr";
-import { marked } from "marked";
+import { ArrowLeftIcon } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import QueryResults from "./QueryResults";
 
 export default function Results() {
