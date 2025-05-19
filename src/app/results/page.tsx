@@ -17,7 +17,7 @@ export default function Results() {
         setUseSpam(localStorage.getItem('use-spam') === 'true');
         setUseToxicity(localStorage.getItem('use-toxicity') === 'true');
         setUseSentiment(localStorage.getItem('use-sentiment') === 'true');
-    })
+    }, [])
     
     // Use the api here
 
