@@ -50,9 +50,9 @@ export default function Results() {
                                 Sentiment Analysis
                             </CheckButton>
 
-                            <button className="ml-auto bg-foreground text-background">
+                            {/* <button className="ml-auto bg-foreground text-background">
                                 Rate this analysis
-                            </button>
+                            </button> */}
                         </div>
                     </div>
 
