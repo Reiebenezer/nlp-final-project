@@ -75,7 +75,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div id="about" className=" w-[min(720px,80vw)]">
+      <div id="about" className=" w-[min(720px,80vw)] min-h-screen grid place-content-center">
         <h2 className="text-4xl font-black">About this project</h2>
         <p className='my-4'>SimpleAnalyst is an intuitive text analysis tool designed to help users quickly identify key characteristics in written content.</p>
         <p className='my-4'>With just a few clicks, users can analyze messages for <code>spam</code>, <code>toxicity</code>, and <code>sentiment</code>, making it ideal for moderating online platforms, enhancing user safety, or gaining insight into public feedback. </p>
